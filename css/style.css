@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/* グリッド表示 */
+#header{
+    display: flex;
+    justify-content: space-between;
+}
+#header h3{
+    text-align: right;
+    margin-left: 500px;
+}
+.site-title{
+    text-align: left;
+}
+.product-list{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:35px ;
+    align-content: center;
+    
+}
+.product-list img{
+    width: 100%;
+}
+#footer .menu{
+    display: flex;
+    list-style: none;
+}
+#footer  .menu p{
+    margin-left: 20px;
+}
+/* グリッドここまで */
+.product-list li{
+    list-style: none;
+    text-decoration: none;
+}
+/* wrapper で表示サイズの調整 */
+.wrapper{
+    width: 100%;
+    max-width: 1360px;
+    margin:0 auto;
+    padding: 0 40px;
+}
+
+/* ここまで */
+.product-list a{
+    text-decoration: none;
+    color: black;
+}

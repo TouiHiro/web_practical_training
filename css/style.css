@@ -67,23 +67,50 @@ a{
         grid-template-columns: repeat(2,1fr);
         font-size:0.8rem;
     }
+    .item{
+    gap: 70px;
+    margin-bottom: 90px;
+    width: 60%;
+    flex-direction: column;
+    }
+    #footer ul{
+        display: inline;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 /* item1ページ編集 */
 .page-title{
     font-size: small;
+    margin-bottom: 10px;
 }
 .item{
     display: flex;
+    gap: 70px;
+    margin-bottom: 90px;
+    width: 60%;
 }
 
 .item-img img{
-    width: 350px;
+    width: 300px;
 }
 .item-text{
-    width: 300px;
+    width: 280px;
     height: 250px;
 }
 .item-text p{
-    margin-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: x-small;
+}
+.item-text table{
+    font-size: x-small;
+}
+#footer a{
+    margin-top: 50px;
+    font-size: x-small;
+}
+#footer p{
+    margin-top: 50px;
+    font-size: x-small;
 }

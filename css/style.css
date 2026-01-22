@@ -3,19 +3,26 @@
 #header{
     display: flex;
     justify-content: space-between;
-}
-#header h3{
     text-align: right;
-    margin-left: 500px;
+}
+
+a{
+        text-decoration: none;
 }
 .site-title{
     text-align: left;
+    margin:13px 0;
+    
+}
+.site-title img{
+    width: 150px;
 }
 .product-list{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap:35px ;
     align-content: center;
+    font-size: small;
     
 }
 .product-list img{
@@ -43,6 +50,13 @@
 
 /* ここまで */
 .product-list a{
-    text-decoration: none;
     color: black;
+}
+/* productsへのリンク */
+.link-text {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+    color: black;
+    font-size: small;
 }

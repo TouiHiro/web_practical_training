@@ -68,3 +68,22 @@ a{
         font-size:0.8rem;
     }
 }
+
+/* item1ページ編集 */
+.page-title{
+    font-size: small;
+}
+.item{
+    display: flex;
+}
+
+.item-img img{
+    width: 350px;
+}
+.item-text{
+    width: 300px;
+    height: 250px;
+}
+.item-text p{
+    margin-bottom: 10px;
+}

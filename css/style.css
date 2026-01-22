@@ -60,3 +60,12 @@ a{
     color: black;
     font-size: small;
 }
+
+/* レスポンシブ対応デザイン */
+@media (max-width:600px){
+    .product-list{
+        grid-template-columns: repeat(2,1fr);
+        font-size:0.8rem;
+    }
+
+}

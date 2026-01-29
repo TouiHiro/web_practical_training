@@ -81,11 +81,32 @@ a{
 }
 
 /* companyページ */
+/* table */
 .info{
-    display: flex;
+    border-collapse: collapse;
+    margin-bottom: 30px;
 }
 .info tr{
     text-align: left;
+}
+.info th{
+    padding-right: 130px;
+    font-weight: normal;
+}
+.info td{
+}
+.info td,.info th{
+    padding-top: 30px;
+    border-bottom: solid rgb(192, 192, 192) 1px;
+    vertical-align: top;
+    text-align: left;
+}
+/* map */
+.map{
+    filter: grayscale();
+}
+.map iframe{
+    height: 400px;
 }
 
 /* item1ページ編集 */

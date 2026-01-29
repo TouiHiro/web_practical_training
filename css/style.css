@@ -15,7 +15,8 @@ a{
     
 }
 .site-title img{
-    width: 150px;
+    width: 190px;
+    margin-bottom: 20px;
 }
 .product-list{
     display: grid;
@@ -61,58 +62,51 @@ a{
     font-size: small;
 }
 
-/* レスポンシブ対応デザイン */
-@media (max-width:600px){
-    .product-list{
-        grid-template-columns: repeat(2,1fr);
-        font-size:0.8rem;
-    }
-    .item{
-    gap: 70px;
-    margin-bottom: 90px;
-    width: 60%;
-    flex-direction: column;
-    }
-    #footer ul{
-        display: inline;
-        justify-content: center;
-        align-items: center;
-    }
-}
 
 /* companyページ */
 /* table */
-.info{
+#company .info{
     border-collapse: collapse;
     margin-bottom: 30px;
+    width: 600px;
 }
-.info tr{
-    text-align: left;
+#company .info td{
+    /* text-align: left; */
+    vertical-align: middle;
+    
 }
-.info th{
-    padding-right: 130px;
+#company .info th{
+    padding-right: 100px;
     font-weight: normal;
+    
 }
-.info td{
-}
-.info td,.info th{
-    padding-top: 30px;
+#company .info td,
+#company .info th{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
     border-bottom: solid rgb(192, 192, 192) 1px;
-    vertical-align: top;
     text-align: left;
+}
+/* 最終行の線を消す */
+#company .info tr:last-child th,
+#company .info tr:last-child td{
+    border-style: none;
+    vertical-align: top;
 }
 /* map */
 .map{
     filter: grayscale();
 }
 .map iframe{
-    height: 400px;
+    height: 300px;
 }
 
 /* item1ページ編集 */
 .page-title{
-    font-size: small;
+    font-size: medium;
     margin-bottom: 10px;
+    font-weight: normal;
 }
 .item{
     display: flex;
@@ -142,4 +136,26 @@ a{
 #footer p{
     margin-top: 50px;
     font-size: x-small;
+}
+
+/* レスポンシブ対応デザイン */
+@media (max-width:600px){
+    .product-list{
+        grid-template-columns: repeat(2,1fr);
+        font-size:0.8rem;
+    }
+    .item{
+    gap: 70px;
+    margin-bottom: 90px;
+    width: 60%;
+    flex-direction: column;
+    }
+    #footer ul{
+        display: inline;
+        justify-content: center;
+        align-items: center;
+    }
+    #company .info{
+        display: block;
+    }
 }

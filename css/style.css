@@ -68,7 +68,8 @@ a{
 #company .info{
     border-collapse: collapse;
     margin-bottom: 30px;
-    width: 600px;
+    /* width: 600px; */
+    .info{width: 600px;}
 }
 #company .info td{
     /* text-align: left; */
@@ -144,6 +145,9 @@ a{
         grid-template-columns: repeat(2,1fr);
         font-size:0.8rem;
     }
+    header{
+        width: 100%;
+    }
     .item{
     gap: 70px;
     margin-bottom: 90px;
@@ -152,10 +156,30 @@ a{
     }
     #footer ul{
         display: inline;
-        justify-content: center;
         align-items: center;
     }
-    #company .info{
+    #company .info th,
+    #company .info td{
         display: block;
+        width: 100%;
+    }
+    .page-title{
+        margin-left: 30px;
+    }
+    #company .info th{
+        border-style: none;
+
+    }
+
+    #company .info {
+        margin-left: 30px;
+    }
+    .map iframe{
+        width: 300px;
+        margin-left: 30px;
+        justify-content: center;
+    }
+    .menu{
+        margin-left: 40px;
     }
 }

@@ -80,6 +80,14 @@ a{
     }
 }
 
+/* companyページ */
+.info{
+    display: flex;
+}
+.info tr{
+    text-align: left;
+}
+
 /* item1ページ編集 */
 .page-title{
     font-size: small;

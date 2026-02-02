@@ -9,7 +9,7 @@ spans.forEach((span,index)=>{
         // console.log("aa");
         if(timerIds[index]) clearInterval(timerIds[index]);
         timerIds[index] = setInterval(()=>{
-            const randomWidth = Math.floor(Math.random()*(40 - 10 + 1)) + 10;
+            const randomWidth = Math.floor(Math.random()*(30 - 10 + 1)) + 10;
             span.style.width = `${randomWidth}px`;
         },300);
     }
@@ -22,7 +22,7 @@ spans.forEach((span,index)=>{
         }
         // ホバーが外れた時に長さが戻る
         if (!hamburger.classList.contains("active")) {
-            span.style.width = "40px";
+            span.style.width = "30px";
         }
     });
     // クリック時演出
@@ -34,7 +34,7 @@ spans.forEach((span,index)=>{
             }
         });
         // クリックしたときに長さが戻る
-        span.style.width = "40px";
+        span.style.width = "30px";
         hamburger.classList.toggle("active");
     });
 });

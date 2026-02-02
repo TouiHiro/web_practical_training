@@ -3,7 +3,7 @@
 /* ハンバーガー */
 .btn-trigger{
     width: 40px;
-    height: 25px;
+    height: 20px;
     position: fixed;
     /* display: inline-block; */
     display: flex;
@@ -14,7 +14,7 @@
 .random-box{
     margin-right: 15px;
     position: absolute;
-    width: 40px;
+    width: 30px;
     height: 2px;
     background-color: black;
     transition: width 0.5s linear;
@@ -38,6 +38,8 @@
 .btn-trigger.active span:last-of-type{
 
 }
+/* 一覧表示 */
+
 
 #header{
     display: flex;
@@ -178,6 +180,45 @@ a{
     font-size: x-small;
 }
 
+/* Contactページ */
+#contact-form{
+    max-width: 600px;
+}
+#contact-form input{
+    border: solid rgb(192, 192, 192) 1px;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+#contact-form ::placeholder{
+    color: black;
+}
+
+#contact-form .radio{
+    width: fit-content;
+    height: 13px;
+    margin-bottom: solid rgb(192, 192, 192) 1px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+#contact-form .checkbox{
+    width: fit-content;
+    height: 13px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+#contact-form .textarea{
+    border: solid rgb(192, 192, 192) 1px;
+    width: 100%;
+    height: 170px;
+}
+#contact-form button{
+    width: 100%;
+    padding: 10px;
+    height: 50px;
+    border: solid rgb(192, 192, 192) 1px;
+}
 /* レスポンシブ対応デザイン */
 @media (max-width:600px){
     .product-list{

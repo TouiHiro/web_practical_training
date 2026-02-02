@@ -1,5 +1,44 @@
 @charset "UTF-8";
 /* グリッド表示 */
+/* ハンバーガー */
+.btn-trigger{
+    width: 40px;
+    height: 25px;
+    position: fixed;
+    /* display: inline-block; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 15px;
+}
+.random-box{
+    margin-right: 15px;
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background-color: black;
+    transition: width 0.5s linear;
+}
+.btn-trigger span:first-of-type{
+    top:0;
+}
+.btn-trigger span:nth-last-of-type(2){
+    top:50%;
+}
+.btn-trigger span:last-of-type{
+    top:100%;
+}
+.btn-trigger.active span:first-of-type{
+    width: 40px;
+}
+.btn-trigger.active span:nth-last-of-type(2){
+    opacity: 0;
+    transition: all 0.7s;
+}
+.btn-trigger.active span:last-of-type{
+
+}
+
 #header{
     display: flex;
     justify-content: space-between;

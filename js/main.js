@@ -1,6 +1,9 @@
 const spans = document.querySelectorAll(".random-box");
 const hamburger = document.querySelector(".btn-trigger");
 const timerIds = [];
+const menuPanel = document.querySelector(".menu");
+// ２dコンテキストの取得
+
 // ホバー演出
 spans.forEach((span,index)=>{
     timerIds[index] = null;
@@ -14,7 +17,6 @@ spans.forEach((span,index)=>{
         },300);
     }
     });
-
     hamburger.addEventListener("mouseleave",()=>{
         if (timerIds[index]) {
             clearInterval(timerIds[index]);
@@ -33,8 +35,11 @@ spans.forEach((span,index)=>{
                 timerIds[index] = null;
             }
         });
+        hamburger.classList.toggle("active");
         // クリックしたときに長さが戻る
         span.style.width = "30px";
-        hamburger.classList.toggle("active");
+        // パネルスライドイン
+        menuPanel.classList.toggle("active");
+        overlay.classList.toggle("active");
     });
 });

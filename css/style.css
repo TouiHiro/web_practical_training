@@ -58,6 +58,8 @@ transform:translateY(-10px) rotate(-45deg)
 /* 一覧表示 */
 .menu {
     background-color: black;
+    /* background-image: url("/img/menu_panel.png"); */
+    opacity: 80%;
     height: 700px;
     display: flex;
     z-index: 100;
@@ -133,10 +135,14 @@ a {
 }
 
 .site-title img {
-    width: 190px;
+    width: 220px;
     padding-bottom: 10px;
+    padding-left: 45px;
 }
 
+.content{
+    padding-left: 45px;
+}
 .product-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -173,8 +179,7 @@ a {
 .wrapper {
     width: 100%;
     max-width: 1360px;
-    margin: 0 auto;
-    padding: 0 40px;
+    padding-right: 45px;
 }
 
 .content {

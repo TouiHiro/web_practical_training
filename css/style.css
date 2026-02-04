@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: "MaruMonica";
+    src: url("/font/x12y16pxMaruMonica.ttf") format("truetype");
+    font-display: swap;
+}
+
 /* グリッド表示 */
 /* ハンバーガー */
 .btn-trigger {
@@ -43,7 +49,7 @@
 }
 
 .btn-trigger.active span:first-of-type {
-    transform:translateY(10px) rotate(45deg)
+    transform: translateY(10px) rotate(45deg)
 }
 
 .btn-trigger.active span:nth-last-of-type(2) {
@@ -52,7 +58,7 @@
 }
 
 .btn-trigger.active span:last-of-type {
-transform:translateY(-10px) rotate(-45deg)
+    transform: translateY(-10px) rotate(-45deg)
 }
 
 /* 一覧表示 */
@@ -74,18 +80,21 @@ transform:translateY(-10px) rotate(-45deg)
     right: 0;
     top: 0;
     flex-direction: column;
-    align-items: left ;
+    align-items: left;
     padding-top: 70px;
 }
-.links li a{
+
+.links li a {
     height: 100vh;
     z-index: 200;
     color: #ffffff;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 40px;
     font-weight: bolder;
+    font-family: MaruMonica;
 }
-li{
+
+li {
     list-style: none;
     margin-bottom: 20px;
     text-align: left;
@@ -109,7 +118,7 @@ li{
     transition: opacity 1.5s ease;
 }
 
-.overlay.active{
+.overlay.active {
     opacity: 1;
     visibility: visible;
 }
@@ -140,9 +149,10 @@ a {
     padding-left: 45px;
 }
 
-.content{
+.content {
     padding-left: 45px;
 }
+
 .product-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -257,29 +267,33 @@ a {
     font-weight: normal;
 }
 
-.item {
-    display: flex;
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 70px;
     margin-bottom: 90px;
-    width: 60%;
 }
 
-.item-img img {
-    width: 300px;
+.item {
+
+    width: 350px;
+    /* 正方形の横幅 */
+    height: 350px;
+    /* 正方形の高さ */
+    position: relative;
+    /* 基準位置とする */
+    overflow: hidden;
+    /* はみ出た分を非表示 */
 }
 
-.item-text {
-    width: 280px;
-    height: 250px;
-}
-
-.item-text p {
-    margin-bottom: 25px;
-    font-size: x-small;
-}
-
-.item-text table {
-    font-size: x-small;
+.item img {
+  position: absolute; /* 相対位置とする */
+  top: 35%;           /* 上から50%の位置 */
+  left: 45%;          /* 左から50%の位置 */
+  transform: translate(-50%, -50%); /* 画像のサイズの半分だけ位置を戻す */
+  width: 100%;
+  height: auto;
 }
 
 #footer a {
@@ -390,16 +404,17 @@ a {
     }
 
     .cover {
-    /* opacity: 80%; */
-    /* height: 700px; */
-    position: fixed;
-    display: flex;
-    z-index: 100;
-    top: 0;
-    right: -80px;
-    translate: 100vw;
-}
-.cover.active {
-    translate: 50vw;
-}
+        /* opacity: 80%; */
+        /* height: 700px; */
+        position: fixed;
+        display: flex;
+        z-index: 100;
+        top: 0;
+        right: -80px;
+        translate: 100vw;
+    }
+
+    .cover.active {
+        translate: 50vw;
+    }
 }

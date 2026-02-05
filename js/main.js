@@ -2,6 +2,7 @@ const spans = document.querySelectorAll(".random-box");
 const hamburger = document.querySelector(".btn-trigger");
 const timerIds = [];
 const menuPanel = document.querySelector(".menu");
+const overlay = document.querySelector(".overlay")
 // ２dコンテキストの取得
 
 // ホバー演出
@@ -40,6 +41,6 @@ spans.forEach((span,index)=>{
         span.style.width = "30px";
         // パネルスライドイン
         menuPanel.classList.toggle("active");
-        overlay.classList.toggle("active");
+        // overlay.classList.toggle("active");
     });
 });

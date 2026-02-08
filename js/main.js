@@ -41,6 +41,13 @@ spans.forEach((span,index)=>{
         span.style.width = "30px";
         // パネルスライドイン
         menuPanel.classList.toggle("active");
-        // overlay.classList.toggle("active");
+        overlay.classList.toggle("active");
     });
 });
+
+const images = document.querySelectorAll(".item");
+images.forEach((image)=>{
+    image.addEventListener("mouseover",()=>{
+        
+    });
+})

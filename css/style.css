@@ -268,16 +268,16 @@ a {
 .items {
     display: grid;
     grid-template-columns: repeat(3, minmax(250px, 1fr));
-    gap: 50px;
+    gap: 0px;
     padding-top: 3px;
 }
 
 .item {
-    width: 80%;
+    width: 270px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 8px;
-    display: block;
+    border-radius: 20px;
+    /* display: block; */
     margin-top: 10px;
     border: solid 20px #ffffff;
 }
@@ -289,20 +289,24 @@ a {
     background-color: antiquewhite;
     border-radius: 10px;
     position: fixed;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: grid;
     grid-template-columns: 2fr 1.5fr 0.3fr;
+    display:none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease;
 }
 
 #modalGrid img {
     width: 70%;
     margin: auto;
+    aspect-ratio: 1/1.2;
+    object-fit: cover;
 }
 
 #modalGrid p {
-    background-color: aquamarine;
     height: 80%;
     width: 80%;
     margin: auto;
@@ -313,6 +317,16 @@ a {
     height: 30px;
     width: 30px;
     z-index: 200;
+    
+}
+
+#modalGrid.active {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    opacity: 1;
+    visibility: visible;
 }
 
 .closeBtn {
@@ -327,14 +341,16 @@ a {
 #modalClose span:first-of-type {
     transform: translateY(10px) rotate(45deg)
 }
+
 #modalClose span:last-of-type {
     transform: translateY(10px) rotate(-45deg)
 }
+
 .tips {
     /* display none = 存在しない */
 }
 
-.mountains {
+.subject {
     width: 70%;
     margin: 20px;
 }
@@ -438,7 +454,7 @@ a {
         gap: 0px;
     }
 
-    .mountains {
+    .subject {
         width: 100%;
         margin: auto;
     }

@@ -46,8 +46,30 @@ spans.forEach((span,index)=>{
 });
 
 const images = document.querySelectorAll(".item");
+const modalWindow = document.querySelector("#modalGrid");
+const modalImg = modalWindow.querySelector("img");
+const modalText = modalWindow.querySelector("p");
+
+// モーダル表示
 images.forEach((image)=>{
-    image.addEventListener("mouseover",()=>{
-        
+    image.addEventListener("click",()=>{
+        const newSrc = image.getAttribute("data-src");
+        const newText = image.getAttribute("data-text");
+        modalImg.src = newSrc;
+        modalText.innerText = newText;
+        if(modalWindow.style.display === "none" || !modalWindow.classList.contains("active")){
+            console.log("aa");
+            modalWindow.style.display = "grid";
+            overlay.classList.toggle("active");
+            setTimeout(()=>{
+                modalWindow.classList.add("active");
+            },10)
+        }
     });
-})
+});
+// モーダル閉じ
+const modalClose = document.querySelector("#modalClose");
+modalClose.addEventListener("click",()=>{
+    modalWindow.classList.remove("active");
+    overlay.classList.remove("active");
+});

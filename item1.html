@@ -41,62 +41,77 @@
         <div class="content wrapper">
             <div class="subject">
                 <h1 class="page-title">登山記録</h1>
-                <h2>山名</h2>
+                <h2>釈迦ヶ岳</h2>
                 <div class="items">
-                    <p>題名<br>
+                    <p>旭ダム<br>
                         <img src="contentsImg/sha_dam.jpeg" class="item"
-                        data-src="contentsImg/sha_dam.jpeg"
-                        data-text="ダム">
+                        data-title="旭ダム"data-src="contentsImg/sha_dam.jpeg"
+                        data-text="ダム" >
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/sha_stump.jpeg" class="item">
+                    <p>切り株<br>
+                        <img src="contentsImg/sha_stump.jpeg" class="item"
+                        data-title="切り株" data-src="contentsImg/sha_stump.jpeg"
+                        data-text="切り株" >
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/sha_treecave.jpeg" class="item">
+                    <p>樹洞<br>
+                        <img src="contentsImg/sha_treecave.jpeg" class="item"
+                        data-title="樹洞" data-src="contentsImg/sha_treecave.jpeg"
+                        data-text="樹洞">
                     </p>
                     <p>題名<br>
                         <img src="contentsImg/sha_unnatural.jpg" class="item"
-                        data-src="contentsImg/sha_unnatural.jpg"
+                        data-title="岩" data-src="contentsImg/sha_unnatural.jpg"
                         data-text="岩">
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item" 
-                        data-src="contentsImg/shaka.jpg"
-                        data-text="銅像">
+                    <p>日の出<br>
+                        <img src="contentsImg/sha_sunset.jpeg" class="item" 
+                        data-title="日の出" data-src="contentsImg/sha_sunset.jpg"
+                        data-text="日の出">
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item">
+                    <p>雲海<br>
+                        <img src="contentsImg/sha_sea_of_clouds.jpeg" class="item"
+                        data-title="雲海" data-src="contentsImg/sha_sea_of_clouds.jpeg"
+                        data-text="雲海">
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item">
+                    <p>根の壁<br>
+                        <img src="contentsImg/sha_roots.jpeg" class="item"
+                        data-title="根の壁" data-src="contentsImg/sha_roots.jpeg"
+                        data-text="根の壁">
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item">
+                    <p>なだらかな丘<br>
+                        <img src="contentsImg/sha_hill.jpeg" class="item"
+                        data-title="なだらかな丘" data-src="contentsImg/sha_hill.jpeg"
+                        data-text="なだらかな丘">
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item">
+                    <p>釈迦ヶ岳頂上<br>
+                        <img src="contentsImg/shaka.jpg" class="item"
+                        data-title="釈迦ヶ岳頂上" data-src="contentsImg/shaka.jpg"
+                        data-text="釈迦ヶ岳頂上">
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item">
+                </div>
+                <h2>大台ケ原</h2>
+                <div class="items">
+                    <p>日の出<br>
+                        <img src="contentsImg/odai_sunset.JPG" class="item"
+                        data-title="日の出" data-src="contentsImg/odai_sunset.JPG"
+                        data-text="日の出">
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item">
+                    <p>階段<br>
+                        <img src="contentsImg/odai_upstair.JPG" class="item"
+                        data-title="階段" data-src="contentsImg/odai_upstair.JPG"
+                        data-text="階段">
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item">
+                    <p>大蛇嵓<br>
+                        <img src="contentsImg/odai_daija.jpg" class="item"
+                        data-title="大蛇嵓" data-src="contentsImg/odai_daija.jpg"
+                        data-text="大蛇嵓">
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item">
+                    <p>頂上の雲海<br>
+                        <img src="contentsImg/odai_sea_of_clouds.JPG" class="item"
+                        data-title="頂上の雲海" data-src="contentsImg/odai_sea_of_clouds.JPG"
+                        data-text="頂上の雲海">
                     </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item">
-                    </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item">
-                    </p>
-                    <p>題名<br>
-                        <img src="contentsImg/shaka.jpg" class="item">
-                    </p>
+
                 </div>
             </div>
             <!-- tips -->
@@ -104,8 +119,9 @@
         <!-- モーダルウィンドウの枠 -->
         <div class="modal">
             <div id="modalGrid">
-                <img src="img/item1.jpg" alt="">
-                <p></p>
+                <p id="modalTitle"></p>
+                <img src="" alt="">
+                <p id="article"></p>
                 <div id="modalClose">
                     <span class="closeBtn"></span>
                     <span class="closeBtn"></span>
@@ -115,7 +131,6 @@
         <!-- クリック要素の座標から真中へ -->
     </main>
     <footer id="footer" class="wrapper">
-        <a class="link-text" href="products.html">Back To Products</a>
         <ul class="SNS">
             <li>
                 <p>INSTAGRAM</p>

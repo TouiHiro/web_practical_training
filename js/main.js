@@ -6,19 +6,19 @@ const overlay = document.querySelector(".overlay")
 // ２dコンテキストの取得
 
 // ホバー演出
-spans.forEach((span,index)=>{
+spans.forEach((span, index) => {
     timerIds[index] = null;
-    hamburger.addEventListener("mouseover",()=>{
-        if(!hamburger.classList.contains("active")){
-        // console.log("aa");
-        if(timerIds[index]) clearInterval(timerIds[index]);
-        timerIds[index] = setInterval(()=>{
-            const randomWidth = Math.floor(Math.random()*(30 - 10 + 1)) + 10;
-            span.style.width = `${randomWidth}px`;
-        },300);
-    }
+    hamburger.addEventListener("mouseover", () => {
+        if (!hamburger.classList.contains("active")) {
+            // console.log("aa");
+            if (timerIds[index]) clearInterval(timerIds[index]);
+            timerIds[index] = setInterval(() => {
+                const randomWidth = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+                span.style.width = `${randomWidth}px`;
+            }, 300);
+        }
     });
-    hamburger.addEventListener("mouseleave",()=>{
+    hamburger.addEventListener("mouseleave", () => {
         if (timerIds[index]) {
             clearInterval(timerIds[index]);
             timerIds[index] = null;
@@ -48,28 +48,41 @@ spans.forEach((span,index)=>{
 const images = document.querySelectorAll(".item");
 const modalWindow = document.querySelector("#modalGrid");
 const modalImg = modalWindow.querySelector("img");
-const modalText = modalWindow.querySelector("p");
-
+const modalText = modalWindow.querySelector("#article");
+const modalTitle = modalWindow.querySelector("#modalTitle");
 // モーダル表示
-images.forEach((image)=>{
-    image.addEventListener("click",()=>{
+images.forEach((image) => {
+    image.addEventListener("click", () => {
         const newSrc = image.getAttribute("data-src");
         const newText = image.getAttribute("data-text");
+        const newTitle = image.getAttribute("data-title");
         modalImg.src = newSrc;
         modalText.innerText = newText;
-        if(modalWindow.style.display === "none" || !modalWindow.classList.contains("active")){
+        modalTitle.innerText = newTitle;
+        if (modalWindow.style.display === "none" || !modalWindow.classList.contains("active")) {
             console.log("aa");
             modalWindow.style.display = "grid";
-            overlay.classList.toggle("active");
-            setTimeout(()=>{
+            overlay.classList.add("active");
+            setTimeout(() => {
                 modalWindow.classList.add("active");
-            },10)
+            }, 10)
         }
     });
 });
 // モーダル閉じ
 const modalClose = document.querySelector("#modalClose");
-modalClose.addEventListener("click",()=>{
+modalClose.addEventListener("click", () => {
     modalWindow.classList.remove("active");
     overlay.classList.remove("active");
+});
+
+overlay.addEventListener("click", () => {
+    if (modalWindow.classList.contains("active")) {
+        modalWindow.classList.remove("active");
+        overlay.classList.remove("active");
+    }else if(hamburger.classList.contains("active")){
+        overlay.classList.remove("active");
+        hamburger.classList.remove("active");
+        menuPanel.classList.remove("active");
+    }
 });

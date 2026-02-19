@@ -6,6 +6,126 @@
     font-display: swap;
 }
 
+#backGif {
+    display: grid;
+    grid-template-columns: 1fr 0.3fr;
+    margin-top: 50px;
+}
+
+.container img {
+    /* position: fixed; */
+    width: 80vw;
+}
+
+#indSide {
+    background-color: cadetblue;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+#indSide p {
+    width: 100%;
+    margin: 0 20px 0 -50px;
+    font-size: 1.5vw;
+    font-family: MaruMonica;
+    color: #fff;
+    text-shadow: 0 0 10px#fff;
+    white-space: pre;
+}
+
+#indSide img {
+    width: 10vw;
+    margin-top: -2vh;
+    margin-bottom: -4vh;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+    /* line-height: 0; */
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container a {
+    color: white;
+    /* 背景画像で見やすい色に */
+    width: 100%;
+    font-size: 3vw;
+    font-weight: bolder;
+    font-family: MaruMonica;
+    position: absolute;
+}
+
+#Knote {
+    -webkit-text-stroke: 0.1vw bisque;
+    paint-order: stroke;
+    top: 50%;
+    left: 2%;
+    position: absolute;
+    max-width: 8vw;
+}
+
+#mountain {
+    -webkit-text-stroke: 0.1vw bisque;
+    paint-order: stroke;
+    top: 40%;
+    left: 75%;
+    position: absolute;
+    white-space: pre;
+    max-width: 11vw;
+}
+
+#portfolio {
+    -webkit-text-stroke: 0.1vw bisque;
+    paint-order: stroke;
+    top: 87%;
+    left: 40%;
+    position: absolute;
+    max-width: 11vw;
+}
+
+.container button {
+    display: none;
+}
+
+.is-glowing {
+    animation: glow-motion 3s infinite alternate ease-in-out;
+}
+
+@keyframes glow-motion {
+    0% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ffd700, 0 0 30px;
+        transform: scale(1) translate(1px, 1px);
+        filter: blur(0px);
+    }
+
+    33% {
+        text-shadow: 0 0 15px #fff, 0 0 25px #ffd700, 0 0 40px;
+        transform: scale(1.02) translate(1px, -1px);
+        filter: blur(0.5px);
+    }
+
+    66% {
+        text-shadow: 0 0 12px #fff, 0 0 35px #a38b00, 0 0 50px;
+        transform: scale(0.98) translate(-1px, 1px);
+        filter: blur(1.2px);
+    }
+
+    100% {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ffd700, 0 0 60px;
+        transform: scale(1.01) translate(0, 0);
+        filter: blur(0.8px);
+    }
+}
+
 /* グリッド表示 */
 /* ハンバーガー */
 .btn-trigger {
@@ -21,9 +141,11 @@
     top: 0;
     right: 0;
 }
-.btn-trigger.active{
+
+.btn-trigger.active {
     z-index: 42;
 }
+
 .random-box {
     position: fixed;
     margin-right: 15px;
@@ -274,7 +396,7 @@ a {
     overflow: hidden;
 }
 
-.items p{
+.items p {
     text-align: center;
 }
 
@@ -282,20 +404,24 @@ a {
     width: 270px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    
+
 }
-.subject h2{
+
+.subject h2 {
     border-bottom: solid 3px gray;
     width: 100px;
 }
-.items img{
+
+.items img {
     border-radius: 11%;
     border: solid 5px antiquewhite;
 }
-.items img:hover{
+
+.items img:hover {
     transform: scale(1.1);
     transition: 0.5s;
 }
+
 /* tips表示 */
 #modalGrid {
     width: 500px;
@@ -322,10 +448,11 @@ a {
     border-radius: 5%;
 }
 
-#modalTitle{
+#modalTitle {
     grid-column: 1 / -1;
-    padding:15px 0 0 60px;
+    padding: 15px 0 0 60px;
 }
+
 #modalGrid p {
     height: 80%;
     width: 80%;
@@ -364,10 +491,23 @@ a {
     transform: translateY(10px) rotate(-45deg)
 }
 
+.mountp {
+    display: flex;
+}
 
 .subject {
     width: 70%;
     margin: 20px;
+    padding-right: 20px;
+}
+
+.scgauge {
+    background-color: aquamarine;
+    width: 28.4%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
 }
 
 #footer a {
@@ -427,6 +567,31 @@ a {
 
 /* レスポンシブ対応デザイン */
 @media (max-width:600px) {
+    @keyframes glow-motion {
+        0% {
+            text-shadow: 0 0 5px #fff, 0 0 215px #ffd700, 0 0 25px;
+            transform: scale(1) translate(1px, 1px);
+            filter: blur(0px);
+        }
+
+        33% {
+            text-shadow: 0 0 10px #fff, 0 0 20px #ffd700, 0 0 35px;
+            transform: scale(1.02) translate(1px, -1px);
+            filter: blur(0.5px);
+        }
+
+        66% {
+            text-shadow: 0 0 7px #fff, 0 0 30px #a38b00, 0 0 45px;
+            transform: scale(0.98) translate(-1px, 1px);
+            filter: blur(1.2px);
+        }
+
+        100% {
+            text-shadow: 0 0 15px #fff, 0 0 25px #ffd700, 0 0 25px;
+            transform: scale(1.01) translate(0, 0);
+            filter: blur(0.8px);
+        }
+    }
 
     header {
         width: 100%;
@@ -438,82 +603,137 @@ a {
         align-items: center;
     }
 
-    #company .info th,
-    #company .info td {
-        display: block;
-        width: 100%;
-    }
-
-    .page-title {
-        margin-left: 30px;
-    }
-
-    #company .info th {
-        border-style: none;
-
-    }
-
-    #company .info {
-        margin-left: 30px;
-    }
-
-    .map iframe {
-        width: 300px;
-        margin-left: 30px;
-        justify-content: center;
-    }
-
-    .items {
-        grid-template-columns: repeat(2, 1fr);
-        font-size: 0.8rem;
-        gap: 0px;
-    }
-
-    .subject {
-        width: 100%;
-        margin: auto;
-    }
-
-    .item {
-        width: 80%;
-        margin: 0 auto 30px;
-        flex-direction: column;
-    }
-
-    .items p {
-        text-align: center;
-    }
-
-    .menu {
-        background-color: black;
-        /* opacity: 80%; */
-        height: 700px;
+    #backGif {
         display: flex;
-        translate: 100vw;
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 39;
-        height: 100vh;
-        transition: 1.2s;
-        width: 25%;
-        right: 0;
-        top: 0;
-        flex-direction: column;
-        align-items: left;
-        padding-top: 70px;
+        /* flex-direction: column; */
+        align-items: center;
+        gap: 20px;
+        height: 100%;
     }
 
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.3);
-        z-index: 50;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 1.5s ease;
+    .container {
+        width: 600px;
+        height: 750px;
+        position: relative;
+        overflow: hidden;
     }
+
+    .container a {
+        animation: glow-motion 3s infinite alternate ease-in-out;
+        width: 10px;
+    }
+
+    #Knote,
+    #mountain,
+    #portfolio {
+        top: 45%;
+        left: 37%;
+        /* display: none; */
+        font-size: 4vh;
+        
+    }
+    
+}
+
+.container img {
+    position: absolute;
+    /* 初期位置：中央 */
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    min-width: 400%;
+    min-height: 100%;
+}
+
+.container button {
+    -webkit-text-stroke: 0.1vw bisque;
+    paint-order: stroke;
+    top: 60%;
+    left: 5%;
+    position: absolute;
+}
+
+#indSide {
+    display: none;
+}
+
+#company .info th,
+#company .info td {
+    display: block;
+    width: 100%;
+}
+
+.page-title {
+    margin-left: 30px;
+}
+
+#company .info th {
+    border-style: none;
+
+}
+
+#company .info {
+    margin-left: 30px;
+}
+
+.map iframe {
+    width: 300px;
+    margin-left: 30px;
+    justify-content: center;
+}
+
+.items {
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 0.8rem;
+    gap: 0px;
+}
+
+.subject {
+
+    margin: auto;
+}
+
+.item {
+    width: 80%;
+    margin: 0 auto 30px;
+    flex-direction: column;
+}
+
+.items p {
+    text-align: center;
+}
+
+.menu {
+    background-color: black;
+    /* opacity: 80%; */
+    height: 700px;
+    display: flex;
+    translate: 100vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 39;
+    height: 100vh;
+    transition: 1.2s;
+    width: 25%;
+    right: 0;
+    top: 0;
+    flex-direction: column;
+    align-items: left;
+    padding-top: 70px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease;
+}
 }

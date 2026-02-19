@@ -44,45 +44,69 @@ spans.forEach((span, index) => {
         overlay.classList.toggle("active");
     });
 });
-
 const images = document.querySelectorAll(".item");
 const modalWindow = document.querySelector("#modalGrid");
-const modalImg = modalWindow.querySelector("img");
-const modalText = modalWindow.querySelector("#article");
-const modalTitle = modalWindow.querySelector("#modalTitle");
-// モーダル表示
-images.forEach((image) => {
-    image.addEventListener("click", () => {
-        const newSrc = image.getAttribute("data-src");
-        const newText = image.getAttribute("data-text");
-        const newTitle = image.getAttribute("data-title");
-        modalImg.src = newSrc;
-        modalText.innerText = newText;
-        modalTitle.innerText = newTitle;
-        if (modalWindow.style.display === "none" || !modalWindow.classList.contains("active")) {
-            console.log("aa");
-            modalWindow.style.display = "grid";
-            overlay.classList.add("active");
-            setTimeout(() => {
-                modalWindow.classList.add("active");
-            }, 10)
-        }
+if (modalWindow) {
+    const modalImg = modalWindow.querySelector("img");
+    const modalText = modalWindow.querySelector("#article");
+    const modalTitle = modalWindow.querySelector("#modalTitle");
+    // モーダル表示
+    images.forEach((image) => {
+        image.addEventListener("click", () => {
+            const newSrc = image.getAttribute("data-src");
+            const newText = image.getAttribute("data-text");
+            const newTitle = image.getAttribute("data-title");
+            modalImg.src = newSrc;
+            modalText.innerText = newText;
+            modalTitle.innerText = newTitle;
+            if (modalWindow.style.display === "none" || !modalWindow.classList.contains("active")) {
+                console.log("aa");
+                modalWindow.style.display = "grid";
+                overlay.classList.add("active");
+                setTimeout(() => {
+                    modalWindow.classList.add("active");
+                }, 10)
+            }
+        });
     });
-});
-// モーダル閉じ
-const modalClose = document.querySelector("#modalClose");
-modalClose.addEventListener("click", () => {
-    modalWindow.classList.remove("active");
-    overlay.classList.remove("active");
-});
-
-overlay.addEventListener("click", () => {
-    if (modalWindow.classList.contains("active")) {
+    // モーダル閉じ
+    const modalClose = document.querySelector("#modalClose");
+    modalClose.addEventListener("click", () => {
         modalWindow.classList.remove("active");
         overlay.classList.remove("active");
-    }else if(hamburger.classList.contains("active")){
-        overlay.classList.remove("active");
-        hamburger.classList.remove("active");
-        menuPanel.classList.remove("active");
-    }
+    });
+
+    overlay.addEventListener("click", () => {
+        if (modalWindow.classList.contains("active")) {
+            modalWindow.classList.remove("active");
+            overlay.classList.remove("active");
+        } else if (hamburger.classList.contains("active")) {
+            overlay.classList.remove("active");
+            hamburger.classList.remove("active");
+            menuPanel.classList.remove("active");
+        }
+    });
+}
+const glowLinks = document.querySelectorAll(".container a");
+
+glowLinks.forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+        link.classList.add("is-glowing");
+    });
+    link.addEventListener("mouseleave", () => {
+        link.classList.remove("is-glowing");
+    });
 });
+
+// const bar = document.querySelector(".scgauge");
+// window.addEventListener('load', (event) => {
+//     let scroll_y = window.scrollY;
+//     console.log(scroll_y);
+
+//     // (2)スクロールするたびにスクロール量を出力
+//     window.addEventListener('scroll', (event) => {
+//         let scroll_y = window.scrollY;
+//         console.log(scroll_y);
+//         bar.style.height=scroll_y+"px";
+//     });
+// });

@@ -110,3 +110,70 @@ glowLinks.forEach((link) => {
 //         bar.style.height=scroll_y+"px";
 //     });
 // });
+const moveKey = document.querySelectorAll(".movetrigger div");
+const bgGif = document.querySelector(".container img");
+const gifCoord = bgGif.getBoundingClientRect();
+const UpEl = document.querySelector("#up");
+const RightEl = document.querySelector("#right");
+const DownEl = document.querySelector("#down");
+const LeftEl = document.querySelector("#left");
+const up =UpEl.getAttribute("data-text");
+const right =RightEl.getAttribute("data-text");
+const left =LeftEl.getAttribute("data-text");
+const down =DownEl.getAttribute("data-text");
+const Knote = document.querySelector("#Knote");
+const mount = document.querySelector("#mountain");
+const portfolio = document.querySelector("#portfolio");
+moveKey.forEach((key) => {
+    key.addEventListener("click", () => {
+        if (bgGif.classList.contains("default")) {
+            console.log("clear");
+            bgGif.classList.remove("default");
+            if (key.getAttribute("data-text") === "left") {
+                bgGif.classList.toggle("left");
+                key.style.display = "none";
+                DownEl.style.display = "none";
+                Knote.classList.toggle("left");
+            } else if (key.getAttribute("data-text") === "right") {
+                bgGif.classList.toggle("right");
+                key.style.display = "none";
+                DownEl.style.display = "none";
+                mount.classList.toggle("right");
+            } else if (key.getAttribute("data-text") === "down") {
+                bgGif.classList.toggle("down");
+                key.style.display = "none";
+                LeftEl.style.display = "none";
+                RightEl.style.display = "none";
+                UpEl.style.display = "block";
+                portfolio.classList.toggle("down");
+            }
+        } else if (bgGif.classList.contains("right")) {
+            if (key.getAttribute("data-text") === "left") {
+                bgGif.classList.remove("right");
+                bgGif.classList.toggle("default");
+                RightEl.style.display = "block";
+                DownEl.style.display = "block";
+                mount.classList.remove("right");
+            }
+        } else if (bgGif.classList.contains("left")) {
+            if (key.getAttribute("data-text") === "right") {
+                LeftEl.style.display = "block";
+                DownEl.style.display = "block";
+                Knote.classList.remove("left");
+                bgGif.classList.remove("left");
+                bgGif.classList.toggle("default");
+            }
+        }
+        else if (bgGif.classList.contains("down")) {
+            if (key.getAttribute("data-text") === "up") {
+                RightEl.style.display = "block";
+                LeftEl.style.display = "block";
+                DownEl.style.display = "block";
+                UpEl.style.display = "none";
+                bgGif.classList.remove("down");
+                bgGif.classList.toggle("default");
+                portfolio.classList.remove("down");
+            }
+        }
+    })
+});

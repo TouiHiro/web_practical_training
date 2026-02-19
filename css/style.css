@@ -735,6 +735,7 @@ a {
         visibility: visible;
         opacity: 1;
         transition: all 2s ease;
+        z-index: 50;
     }
 
     .container img.right {

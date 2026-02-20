@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "MaruMonica";
-    src: url("/font/x12y16pxMaruMonica.ttf") format("truetype");
+    src: url("font/x12y16pxMaruMonica.ttf") format("truetype");
     font-display: swap;
 }
 

@@ -2,8 +2,7 @@
 
 @font-face {
     font-family: "MaruMonica";
-    src: url("font/x12y16pxMaruMonica.ttf") format("truetype");
-    
+    src: url("../font/x12y16pxMaruMonica.ttf") format("truetype");
     font-display: swap;
 }
 
@@ -65,7 +64,7 @@
     width: 100%;
     font-size: 3vw;
     font-weight: bolder;
-    font-family: "x12y16pxMaruMonica";
+    font-family: "MaruMonica";
     position: absolute;
 }
 

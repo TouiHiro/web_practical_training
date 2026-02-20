@@ -1,10 +1,12 @@
 @charset "UTF-8";
 
 @font-face {
-    /* font-family: "MaruMonica";
+    font-family: "MaruMonica";
+    src: url("c:/USERS/M2520044/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/X12Y16PXMARUMONICA.TTF") format("woff2");
+    src: url("c:/USERS/M2520044/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/X12Y16PXMARUMONICA.TTF") format("woff");
     src: url("c:/USERS/M2520044/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/X12Y16PXMARUMONICA.TTF") format("truetype");
     
-    font-display: swap; */
+    font-display: swap;
 }
 
 #backGif {

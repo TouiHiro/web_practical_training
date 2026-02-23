@@ -386,17 +386,11 @@ a {
 }
 
 /* item1ページ編集 */
-canvas {
-    display: block;
-    width: 100%;
 
-    &.flipped {
-        transform: rotate(180deg):
-    }
+.linksRes {
+    display: none;
 }
-.linksRes{
-    display:none;
-}
+
 .page-title {
     font-size: medium;
     margin-bottom: 10px;
@@ -512,12 +506,29 @@ canvas {
 canvas {
     width: 100%;
     height: 100vh;
-    top: -13vh;
+    top: 13vh;
     position: fixed;
     display: block;
+
     &.flipped {
         transform: rotate(180deg);
     }
+}
+
+.canvas-wrapper {
+    display: block;
+    width: 100vw;
+    /* 任意の固定幅 */
+    height: 100vh;
+    /* 任意の固定高さ */
+    overflow: hidden;
+}
+
+.mid {
+    z-index: 1;
+    top: -20vh;
+    transform: rotate(180deg);
+
 }
 
 #modalGrid.active {
@@ -547,6 +558,7 @@ body.is-fixed {
 #modalClose span:last-of-type {
     transform: translateY(10px) rotate(-45deg)
 }
+
 #modalCloseRes span:first-of-type {
     transform: translateY(10px) rotate(45deg)
 }
@@ -554,9 +566,11 @@ body.is-fixed {
 #modalCloseRes span:last-of-type {
     transform: translateY(10px) rotate(-45deg)
 }
-#modalCloseRes{
+
+#modalCloseRes {
     display: none;
 }
+
 .mountp {
     display: flex;
     z-index: 2;
@@ -579,21 +593,41 @@ body.is-fixed {
     position: fixed;
     top: 0;
     right: 0;
-}
-.scgauge {
-    /* 背景色（グラデーションを使って「塗り」を作るのが一般的です） */
-    background-image: linear-gradient(#ff0000, #ff0000); 
+    background-image: linear-gradient(#ff0000, #ff0000);
     background-repeat: no-repeat;
-    background-position: bottom; /* 下から上に伸びるように設定 */
-    background-size: 100% 0px;   /* 初期状態は高さ0 */
+    background-position: bottom;
+    background-size: 100% 0px;
 }
-.scgauge img{
+
+.scgauge img {
     width: 130%;
     height: 100%;
     margin-left: -4vw;
-    overflow:hidden;
+    overflow: hidden;
     z-index: 1;
 }
+
+.scgaugeK {
+    background-color: #ffffff;
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(#12006c, #000443);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 0px;
+}
+
+.scgaugeK img {
+    width: 122%;
+    height: 100%;
+    margin-left: -4vw;
+    overflow: hidden;
+    z-index: 1;
+}
+
 #footer a {
     margin-top: 50px;
     font-size: x-small;
@@ -649,6 +683,94 @@ body.is-fixed {
     border: solid rgb(192, 192, 192) 1px;
 }
 
+/* cooking Note */
+.foods {
+    display: none;
+}
+
+.carousel {
+    width: 70%;
+    height: 80%;
+    top: 17%;
+    left: 2%;
+    background-color: #f1efff;
+    position: absolute;
+    position: fixed;
+    z-index: 50;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 5% 80%;
+    font-family: MaruMonica;
+    background: radial-gradient(circle, rgba(240, 240, 240 ,1), rgba(240,240,240,0.5));
+    transition: all 1s ease;
+    opacity: 1;
+}
+
+.carousel img {
+    width: 90%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    height: 80%;
+    margin-left:11%;
+    margin-top: auto;
+}
+
+.carousel h1 {
+    padding-top: 10%;
+    margin: auto;
+}
+#article {
+    margin: 30% 7% 0 7%; 
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    font-size: x-large;
+}
+.carousel.whiteout{
+    opacity: 0;
+}
+.movetriggerLR
+{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+}
+.movetriggerLR #left {
+    top: 50%;
+    left: 2%;
+    width: 30px;
+    height: 30px;
+    border: 7px solid;
+    border-color: transparent transparent #4a4a4a #4a4a4a;
+    position: absolute;
+    rotate: 45deg;
+    scale: 1;
+    transition: scale 1s ease;
+}
+
+.movetriggerLR #right {
+    right: 2%;
+    top: 50%;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 7px solid;
+    border-color: #4a4a4a #4a4a4a transparent transparent;
+    rotate: 45deg;
+    scale: 1;
+    transition: scale 1s ease;
+}
+.movetriggerLR #left:hover{
+            border-color:transparent transparent #acacac #acacac ;
+}
+.movetriggerLR #right:hover{
+            border-color: #acacac #acacac transparent transparent;
+}
+.movetriggerLR #left:hover,
+.movetriggerLR #right:hover {
+    scale: 1.1;
+}
+
 /* レスポンシブ対応デザイン */
 @media (max-width:600px) {
     @keyframes glow-motion {
@@ -682,23 +804,25 @@ body.is-fixed {
     }
 
     .linksRes li a {
-    height: 100vh;
-    z-index: 200;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bolder;
-    font-family: MaruMonica;
-    font-size: 45px;
-    margin-left:30vw;
-}
-.linksRes{
-    display: block;
-    white-space: pre;
-    margin-top: 13vh;
-}
-.links{
-    display: none;
-}
+        height: 100vh;
+        z-index: 200;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bolder;
+        font-family: MaruMonica;
+        font-size: 45px;
+        margin-left: 30vw;
+    }
+
+    .linksRes {
+        display: block;
+        white-space: pre;
+        margin-top: 13vh;
+    }
+
+    .links {
+        display: none;
+    }
 
     #footer ul {
         display: inline;
@@ -798,7 +922,6 @@ body.is-fixed {
         border: 7px solid;
         border-color: #dddddd #dddddd transparent transparent;
         transform: rotate(-45deg);
-
     }
 
     #down {
@@ -949,15 +1072,26 @@ body.is-fixed {
     }
 
     #modalGrid {
-        width: 70%;
+        width: 100%;
         top: 50%;
         grid-template-columns: none;
+        position: relative;
+    }
+
+    .modal {
+        width: 70%;
+        height: 300px;
+        top: 28%;
+        left: 15%;
+        position: fixed;
+        position: absolute;
     }
 
     #modalGrid.active {
         flex-direction: column;
         overflow-y: scroll;
         display: flex;
+        z-index: 70;
     }
 
     #modalTitle {
@@ -984,14 +1118,14 @@ body.is-fixed {
         height: 30px;
         width: 30px;
         z-index: 200;
-        position: absolute;
         position: fixed;
-        top: 32%;
-        left: 79%;
+        top: 0%;
+        left: 90%;
         opacity: 0;
         visibility: hidden;
         transition: all 1s ease;
-        
+        position: absolute;
+        cursor: pointer;
     }
 
     #modalCloseRes.active {
@@ -1001,13 +1135,15 @@ body.is-fixed {
         display: block;
         z-index: 610;
     }
-#modalCloseRes span:first-of-type {
-    transform: translateY(10px) rotate(45deg)
-}
 
-#modalCloseRes span:last-of-type {
-    transform: translateY(10px) rotate(-45deg)
-}
+    #modalCloseRes span:first-of-type {
+        transform: translateY(10px) rotate(45deg)
+    }
+
+    #modalCloseRes span:last-of-type {
+        transform: translateY(10px) rotate(-45deg)
+    }
+
     .menu {
         display: flex;
         /* translate: 100vw; */
@@ -1023,6 +1159,7 @@ body.is-fixed {
         padding-top: 70px;
         translate: 0;
         transform: translateY(-100vh);
+        visibility: hidden;
     }
 
     .links {
@@ -1033,6 +1170,7 @@ body.is-fixed {
     .menu.active {
         transform: translateY(8vh);
         translate: 0;
+        visibility: visible;
     }
 
     .overlay {

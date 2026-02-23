@@ -117,14 +117,17 @@ glowLinks.forEach((link) => {
 
 const documentHeight = document.documentElement.scrollHeight;
 const bar = document.querySelector(".scgauge");
-
-window.addEventListener('scroll', () => {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollTop = window.scrollY;
-    const scrollPercent = scrollable > 0 ? (scrollTop / scrollable) * 100 : 0;
-    const inversePercent = 100 - scrollPercent;
-    bar.style.backgroundSize = `100% ${inversePercent}%`;
-});
+if (bar) {
+    window.addEventListener('scroll', () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollTop = window.scrollY;
+        const scrollPercent = scrollable > 0 ? (scrollTop / scrollable) * 100 : 0;
+        const inversePercent = 100 - scrollPercent;
+        if (bar) {
+            bar.style.backgroundSize = `100% ${inversePercent}%`;
+        }
+    });
+}
 const moveKey = document.querySelectorAll(".movetrigger div");
 if (moveKey) {
     const bgGif = document.querySelector(".container img");
@@ -383,3 +386,55 @@ if (moveKey) {
     }
     init();
 })();
+// cookingnoteのゲージ
+// カルーセル
+const foods = document.querySelectorAll(".food");
+const carousel = document.querySelector(".carousel");
+function fishingGauge(x){
+    const bar = document.querySelector(".scgaugeK");
+    const rate = foods.length;
+    bar.style.backgroundSize = `100% ${100-100/rate*(x+1)}%`;
+}
+
+
+if(carousel){
+    const carouselImg = carousel.querySelector("img");
+    const carouselText = carousel.querySelector("#article");
+    const carouselTitle = carousel.querySelector("h1");
+    const left = document.querySelector("#left");
+    const right = document.querySelector("#right");
+    let x = 0;
+    fishingGauge(x);
+    function innerCarousel(x){
+        let content = foods[x];
+        const newSrc = content.getAttribute("data-src");
+        const newText = content.getAttribute("data-text");
+        const newTitle = content.getAttribute("data-title");
+        carouselImg.src = newSrc;
+        carouselText.innerText = newText;
+        carouselTitle.innerText = newTitle;
+    }
+    left.addEventListener("click", () => {
+        if(x === 0){
+            x = foods.length - 1;
+        } else {
+            x--;
+        }
+        const sleep = (ms) => new Promise(res => setTimeout(res, ms));
+        carousel.classList.toggle("whiteout");
+        await sleep(1000);
+        innerCarousel(x); 
+        fishingGauge(x);
+        carousel.classList.remove("whiteout");
+    });
+    right.addEventListener("click", () => {
+        if(x === foods.length - 1){
+            x = 0;
+        } else {
+            x++;
+        }
+        innerCarousel(x);
+        fishingGauge(x);
+    });
+    innerCarousel(x);
+}

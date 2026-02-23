@@ -49,43 +49,45 @@ NOTE</a></li>
     <main>
         <div class="content wrapper">
             <div class="canvas-wrapper">
-                <canvas class="wave-bar" data-color1="#" data-color2="#239443"></canvas>
+                <canvas class="wave-bar mid" data-color1="#cccccc" data-color2="#ffffff"></canvas>
+                <canvas class="wave-bar" data-color1="#00008b" data-color2="#00008b"></canvas>
                 <canvas class="wave-bar flipped" data-color1="#24acf2" data-color2="#24acf2"></canvas>
             </div>
             <div class="mountp">
                 <div class="subject">
                     <h1 class="page-title">料理記録</h1>
-                    <div class="items">
+                    <div class="foods">
                         <p>キノコのキッシュ<br>
-                            <img src="contentsImg/quiche.jpg" class="item" data-title="キノコのキッシュ"
+                            <img src="contentsImg/quiche.jpg" class="food" data-title="キノコのキッシュ"
                                 data-src="contentsImg/quiche.jpg" data-text="パイ用の生地を作り、型にはめて軽く焼いたところに炒めたキノコやチーズを混ぜ合わせたアパレイユを流し込んでさらに焼き上げて完成">
                         </p>
                         <p>麻婆豆腐<br>
-                            <img src="contentsImg/mabo.JPG" class="item" data-title="麻婆豆腐"
+                            <img src="contentsImg/mabo.JPG" class="food" data-title="麻婆豆腐"
                                 data-src="contentsImg/mabo.JPG" data-text="やや崩しすぎた麻婆豆腐、唐辛子は3本入れる">
                         </p>
                         <p>燻製<br>
-                            <img src="contentsImg/smoke.JPG" class="item" data-title="燻製"
+                            <img src="contentsImg/smoke.JPG" class="food" data-title="燻製"
                                 data-src="contentsImg/smoke.JPG" data-text="桜のチップで１時間ほど燻す">
                         </p>
                         <p>レバーとハツの燻製<br>
-                            <img src="contentsImg/smoke2.jpg" class="item" data-title="燻製"
+                            <img src="contentsImg/smoke2.jpg" class="food" data-title="燻製"
                                 data-src="contentsImg/smoke2.jpg" data-text="血抜きをしてよく乾燥させてから燻製、レバーの独特な味は保ちつつ触感はサクサクになった">
                         </p>
-                        <p><br>
-                            <img src="contentsImg/quiche.jpg" class="item" data-title="キノコのキッシュ"
+                        <p>aa<br>
+                            <img src="contentsImg/quiche.jpg" class="food" data-title="キノコのキッシュ"
                                 data-src="contentsImg/quiche.jpg" data-text="パイ用の生地を作り、型にはめて軽く焼いたところに炒めたキノコやチーズを混ぜ合わせたアパレイユを流し込んでさらに焼き上げて完成">
                         </p>
                     </div>
                 </div>
-                <div class="scgauge">
-                    <img src="contentsImg/mount_scgauge.png">
+                <div class="scgaugeK">
+                    <img src="contentsImg/fishing.gif" >
                 </div>
+            </div>
             </div>
             <!-- tips -->
         </div>
         <!-- モーダルウィンドウの枠 -->
-        <div class="modal">
+        <!-- <div class="modal">
             <div id="modalGrid">
                 <p id="modalTitle">title</p>
                 <img src="" alt="">
@@ -98,6 +100,20 @@ NOTE</a></li>
             <div id="modalCloseRes">
                 <span class="closeBtn"></span>
                 <span class="closeBtn"></span>
+            </div>
+        </div> -->
+        <!-- カルーセル -->
+        <div class="carousel">
+            <h1 id="title">title</h1>
+            <span></span>
+            <img src="">
+            <p id="article">article</p>
+            <div class="movetriggerLR">
+                <div id="right" data-text="right">
+                </div>
+                <div id="left" data-text="left">
+                </div>
+                </div>
             </div>
         </div>
         <!-- クリック要素の座標から真中へ -->

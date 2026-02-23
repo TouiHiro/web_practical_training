@@ -390,14 +390,14 @@ if (moveKey) {
 // カルーセル
 const foods = document.querySelectorAll(".food");
 const carousel = document.querySelector(".carousel");
-function fishingGauge(x){
+function fishingGauge(x) {
     const bar = document.querySelector(".scgaugeK");
     const rate = foods.length;
-    bar.style.backgroundSize = `100% ${100-100/rate*(x+1)}%`;
+    bar.style.backgroundSize = `100% ${100 - 100 / rate * (x + 1)}%`;
 }
 
 
-if(carousel){
+if (carousel) {
     const carouselImg = carousel.querySelector("img");
     const carouselText = carousel.querySelector("#article");
     const carouselTitle = carousel.querySelector("h1");
@@ -405,7 +405,7 @@ if(carousel){
     const right = document.querySelector("#right");
     let x = 0;
     fishingGauge(x);
-    function innerCarousel(x){
+    function innerCarousel(x) {
         let content = foods[x];
         const newSrc = content.getAttribute("data-src");
         const newText = content.getAttribute("data-text");
@@ -415,26 +415,30 @@ if(carousel){
         carouselTitle.innerText = newTitle;
     }
     left.addEventListener("click", () => {
-        if(x === 0){
+        if (x === 0) {
             x = foods.length - 1;
         } else {
             x--;
         }
-        const sleep = (ms) => new Promise(res => setTimeout(res, ms));
         carousel.classList.toggle("whiteout");
-        await sleep(1000);
-        innerCarousel(x); 
-        fishingGauge(x);
-        carousel.classList.remove("whiteout");
+        setTimeout(() => {
+            innerCarousel(x);
+            fishingGauge(x);
+            carousel.classList.remove("whiteout");
+        }, 1000);
     });
     right.addEventListener("click", () => {
-        if(x === foods.length - 1){
+        if (x === foods.length - 1) {
             x = 0;
         } else {
             x++;
         }
-        innerCarousel(x);
-        fishingGauge(x);
+        carousel.classList.toggle("whiteout");
+        setTimeout(() => {
+            innerCarousel(x);
+            fishingGauge(x);
+            carousel.classList.remove("whiteout");
+        }, 700);
     });
     innerCarousel(x);
 }

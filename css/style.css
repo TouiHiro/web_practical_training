@@ -684,6 +684,9 @@ body.is-fixed {
 }
 
 /* cooking Note */
+.page-title2{
+    
+}
 .foods {
     display: none;
 }
@@ -703,7 +706,7 @@ body.is-fixed {
     grid-template-rows: 5% 80%;
     font-family: MaruMonica;
     background: radial-gradient(circle, rgba(240, 240, 240 ,1), rgba(240,240,240,0.5));
-    transition: all 1s ease;
+    transition: all 0.7s ease;
     opacity: 1;
 }
 

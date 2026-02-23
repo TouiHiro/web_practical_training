@@ -573,14 +573,27 @@ body.is-fixed {
 }
 
 .scgauge {
-    background-color: aquamarine;
+    background-color: #ffffff;
     width: 20%;
     height: 100vh;
     position: fixed;
     top: 0;
     right: 0;
 }
-
+.scgauge {
+    /* 背景色（グラデーションを使って「塗り」を作るのが一般的です） */
+    background-image: linear-gradient(#ff0000, #ff0000); 
+    background-repeat: no-repeat;
+    background-position: bottom; /* 下から上に伸びるように設定 */
+    background-size: 100% 0px;   /* 初期状態は高さ0 */
+}
+.scgauge img{
+    width: 130%;
+    height: 100%;
+    margin-left: -4vw;
+    overflow:hidden;
+    z-index: 1;
+}
 #footer a {
     margin-top: 50px;
     font-size: x-small;

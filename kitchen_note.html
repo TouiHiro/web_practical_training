@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Furniture Design</title>
+    <meta name="description" content="家具の紹介ページ">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <!-- レスポンシブ -->
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css\reset.css">
+    <link rel="stylesheet" href="css\style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<!-- 山ページ -->
+
+<body>
+    <header id="header" class="wrapper">
+        <div class="head-bar">
+            <h1 class="site-title">
+                <a href="index.html"><img src="img/logo.svg" alt="Furniture Design"></a>
+            </h1>
+            <div class="menu">
+                <ul class="links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mountain_climbing.html">MOUNTAIN
+CLIMBING</a></li>
+                    <li><a href="item1.html">KITCHEN
+NOTE</a></li>
+                </ul>
+                <ul class="linksRes">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mountain_climbing.html">MOUNTAIN
+           CLIMBING</a></li>
+                    <li><a href="item1.html">KITCHEN
+           NOTE</a></li>
+                </ul>
+            </div>
+            <div>
+                <nav class="btn-trigger" id="button">
+                    <span class="random-box"></span>
+                    <span class="random-box"></span>
+                    <span class="random-box"></span>
+                </nav>
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </header>
+    <main>
+        <div class="content wrapper">
+            <div class="canvas-wrapper">
+                <canvas class="wave-bar" data-color1="#" data-color2="#239443"></canvas>
+                <canvas class="wave-bar flipped" data-color1="#24acf2" data-color2="#24acf2"></canvas>
+            </div>
+            <div class="mountp">
+                <div class="subject">
+                    <h1 class="page-title">料理記録</h1>
+                    <div class="items">
+                        <p>キノコのキッシュ<br>
+                            <img src="contentsImg/quiche.jpg" class="item" data-title="キノコのキッシュ"
+                                data-src="contentsImg/quiche.jpg" data-text="パイ用の生地を作り、型にはめて軽く焼いたところに炒めたキノコやチーズを混ぜ合わせたアパレイユを流し込んでさらに焼き上げて完成">
+                        </p>
+                        <p>麻婆豆腐<br>
+                            <img src="contentsImg/mabo.JPG" class="item" data-title="麻婆豆腐"
+                                data-src="contentsImg/mabo.JPG" data-text="やや崩しすぎた麻婆豆腐、唐辛子は3本入れる">
+                        </p>
+                        <p>燻製<br>
+                            <img src="contentsImg/smoke.JPG" class="item" data-title="燻製"
+                                data-src="contentsImg/smoke.JPG" data-text="桜のチップで１時間ほど燻す">
+                        </p>
+                        <p>レバーとハツの燻製<br>
+                            <img src="contentsImg/smoke2.jpg" class="item" data-title="燻製"
+                                data-src="contentsImg/smoke2.jpg" data-text="血抜きをしてよく乾燥させてから燻製、レバーの独特な味は保ちつつ触感はサクサクになった">
+                        </p>
+                        <p><br>
+                            <img src="contentsImg/quiche.jpg" class="item" data-title="キノコのキッシュ"
+                                data-src="contentsImg/quiche.jpg" data-text="パイ用の生地を作り、型にはめて軽く焼いたところに炒めたキノコやチーズを混ぜ合わせたアパレイユを流し込んでさらに焼き上げて完成">
+                        </p>
+                    </div>
+                </div>
+                <div class="scgauge">
+                    <img src="contentsImg/mount_scgauge.png">
+                </div>
+            </div>
+            <!-- tips -->
+        </div>
+        <!-- モーダルウィンドウの枠 -->
+        <div class="modal">
+            <div id="modalGrid">
+                <p id="modalTitle">title</p>
+                <img src="" alt="">
+                <p id="article">text</p>
+                <div id="modalClose">
+                    <span class="closeBtn"></span>
+                    <span class="closeBtn"></span>
+                </div>
+            </div>
+            <div id="modalCloseRes">
+                <span class="closeBtn"></span>
+                <span class="closeBtn"></span>
+            </div>
+        </div>
+        <!-- クリック要素の座標から真中へ -->
+    </main>
+    <footer id="footer" class="wrapper">
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

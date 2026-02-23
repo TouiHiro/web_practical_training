@@ -85,7 +85,7 @@ if (modalWindow) {
         overlay.classList.remove("active");
         body.classList.remove("is-fixed");
     });
-    modalCloseRes.addEventListener("click",()=>{
+    modalCloseRes.addEventListener("click", () => {
         modalWindow.classList.remove("active");
         modalCloseRes.classList.remove("active");
         overlay.classList.remove("active");
@@ -115,18 +115,16 @@ glowLinks.forEach((link) => {
     });
 });
 
-// const bar = document.querySelector(".scgauge");
-// window.addEventListener('load', (event) => {
-//     let scroll_y = window.scrollY;
-//     console.log(scroll_y);
+const documentHeight = document.documentElement.scrollHeight;
+const bar = document.querySelector(".scgauge");
 
-//     // (2)スクロールするたびにスクロール量を出力
-//     window.addEventListener('scroll', (event) => {
-//         let scroll_y = window.scrollY;
-//         console.log(scroll_y);
-//         bar.style.height=scroll_y+"px";
-//     });
-// });
+window.addEventListener('scroll', () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollTop = window.scrollY;
+    const scrollPercent = scrollable > 0 ? (scrollTop / scrollable) * 100 : 0;
+    const inversePercent = 100 - scrollPercent;
+    bar.style.backgroundSize = `100% ${inversePercent}%`;
+});
 const moveKey = document.querySelectorAll(".movetrigger div");
 if (moveKey) {
     const bgGif = document.querySelector(".container img");

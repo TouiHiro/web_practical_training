@@ -423,7 +423,6 @@ if (carousel && foods.length > 0) {
     let x = 0;
     const isMobile = window.matchMedia("(max-width: 600px)");
 
-    // --- 関数の処理内容はそのまま、独立させて定義 ---
 
     function fishingGauge(x) {
         const bar = document.querySelector(".scgaugeK");
@@ -436,16 +435,16 @@ if (carousel && foods.length > 0) {
         const bar = document.querySelector("#glass");
         if (!bar) return;
         const rate = foods.length;
-        bar.style.transform = `translateX(${100 / rate * (x + 1)}%)`; // translateを有効な形式に
+        bar.style.transform = `translateX(${100 / rate * (x + 1)}%)`; 
     }
-
     function pengauge(x) {
-        const bgbar = document.querySelector(".scgaugePres");
+        const bgbar = document.querySelector(".scgaugeP");
         const bar = document.querySelector("#pen");
         if (!bar) return;
         const rate = foods.length;
         bar.style.top = ` ${(100 / rate * (x + 1)) - 45}%`;
-        // bgbar.style.top = ` ${(100 / rate * (x + 1)) - 45}%`;
+        bgbar.style.position = "bottom";
+        bgbar.style.backgroundSize = `100% ${100-(100 / rate * (x + 1))}%`;
     }
 
     function innerCarousel(x) {
@@ -459,8 +458,6 @@ if (carousel && foods.length > 0) {
         carouselTitle.innerText = newTitle;
     }
 
-    // --- イベント処理 ---
-
     left.addEventListener("click", () => {
         if (x === 0) {
             x = foods.length - 1;
@@ -470,7 +467,6 @@ if (carousel && foods.length > 0) {
         carousel.classList.add("whiteout");
         setTimeout(() => {
             innerCarousel(x);
-            // ページごとの条件分岐
             if (pageName === "kitchen_note.html") {
                 fishingGauge(x);
                 glassgauge(x);
@@ -490,10 +486,9 @@ if (carousel && foods.length > 0) {
         carousel.classList.add("whiteout");
         setTimeout(() => {
             innerCarousel(x);
-            // 元のロジック通りの条件分岐
             if (isMobile.matches) {
                 glassgauge(x);
-                carousel.classList.remove("whiteout"); // モバイル時も白文字消去が必要なため追加
+                carousel.classList.remove("whiteout"); 
             } else if (pageName === "kitchen_note.html") {
                 fishingGauge(x);
                 carousel.classList.remove("whiteout");
@@ -504,7 +499,6 @@ if (carousel && foods.length > 0) {
         }, 700);
     });
 
-    // 初期実行
     innerCarousel(x);
     if (pageName === "kitchen_note.html") {
         fishingGauge(x);

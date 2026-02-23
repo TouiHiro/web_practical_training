@@ -798,6 +798,25 @@ body.is-fixed {
 .scgaugeKres {
     display: none;
 }
+.scgaugeP{
+        background-color: #000000;
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(#ffffff, #ffffff);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 0px;
+}
+.scgaugeP img {
+    width: 122%;
+    height: 100%;
+    margin-left: -4vw;
+    overflow: hidden;
+    z-index: 1;
+}
 .scgaugePres{
     background-color: #000000;
     width: 20%;

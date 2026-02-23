@@ -127,25 +127,25 @@ if (bar) {
         const inversePercent = 100 - scrollPercent;
         if (bar) {
             bar.style.backgroundSize = `100% ${inversePercent}%`;
-        }else{
+        } else {
             bar.style.backgroundSize = `0 ${inversePercent}%`;
         }
     });
 }
 if (barM) {
     window.addEventListener('scroll', () => {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollTop = window.scrollY;
-    
-    if (scrollable > 0) {
-        const scrollPercent = (scrollTop / scrollable) * 100;
-        const inversePercent = 100 - scrollPercent;
-        const barM = document.querySelector('.scgaugeMres');
-        if (barM) {
-            barM.style.width = `${inversePercent}%`;
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollTop = window.scrollY;
+
+        if (scrollable > 0) {
+            const scrollPercent = (scrollTop / scrollable) * 100;
+            const inversePercent = 100 - scrollPercent;
+            const barM = document.querySelector('.scgaugeMres');
+            if (barM) {
+                barM.style.width = `${inversePercent}%`;
+            }
         }
-    }
-});
+    });
 }
 const moveKey = document.querySelectorAll(".movetrigger div");
 if (moveKey) {
@@ -407,31 +407,50 @@ if (moveKey) {
 })();
 // cookingnoteのゲージ
 // カルーセル
-const foods = document.querySelectorAll(".food");
-const carousel = document.querySelector(".carousel");
-function fishingGauge(x) {
-    const bar = document.querySelector(".scgaugeK");
-    const rate = foods.length;
-    bar.style.backgroundSize = `100% ${100 - 100 / rate * (x + 1)}%`;
-}
-function glassgauge(x){
-    const bar = document.querySelector("#glass");
-    const rate = foods.length;
-    bar.style.transform = `translate(${100 / rate * (x + 1)}%)`
-}
 // レスポンシブゲージ
 
-if (carousel) {
+const foods = document.querySelectorAll(".food");
+const carousel = document.querySelector(".carousel");
+
+if (carousel && foods.length > 0) {
+    const path = window.location.pathname;
+    const pageName = path.split("/").pop();
     const carouselImg = carousel.querySelector("img");
     const carouselText = carousel.querySelector("#article");
     const carouselTitle = carousel.querySelector("h1");
     const left = document.querySelector("#left");
     const right = document.querySelector("#right");
     let x = 0;
-    fishingGauge(x);
-    glassgauge(x);
+    const isMobile = window.matchMedia("(max-width: 600px)");
+
+    // --- 関数の処理内容はそのまま、独立させて定義 ---
+
+    function fishingGauge(x) {
+        const bar = document.querySelector(".scgaugeK");
+        if (!bar) return;
+        const rate = foods.length;
+        bar.style.backgroundSize = `100% ${100 - 100 / rate * (x + 1)}%`;
+    }
+
+    function glassgauge(x) {
+        const bar = document.querySelector("#glass");
+        if (!bar) return;
+        const rate = foods.length;
+        bar.style.transform = `translateX(${100 / rate * (x + 1)}%)`; // translateを有効な形式に
+    }
+
+    function pengauge(x) {
+        const bgbar = document.querySelector(".scgaugePres");
+        const bar = document.querySelector("#pen");
+        if (!bar) return;
+        const rate = foods.length;
+        bar.style.top = ` ${(100 / rate * (x + 1)) - 45}%`;
+        // bgbar.style.top = ` ${(100 / rate * (x + 1)) - 45}%`;
+    }
+
     function innerCarousel(x) {
         let content = foods[x];
+        if (!content) return;
         const newSrc = content.getAttribute("data-src");
         const newText = content.getAttribute("data-text");
         const newTitle = content.getAttribute("data-title");
@@ -439,33 +458,58 @@ if (carousel) {
         carouselText.innerText = newText;
         carouselTitle.innerText = newTitle;
     }
+
+    // --- イベント処理 ---
+
     left.addEventListener("click", () => {
         if (x === 0) {
             x = foods.length - 1;
         } else {
             x--;
         }
-        carousel.classList.toggle("whiteout");
+        carousel.classList.add("whiteout");
         setTimeout(() => {
             innerCarousel(x);
-            fishingGauge(x);
-            glassgauge(x);
+            // ページごとの条件分岐
+            if (pageName === "kitchen_note.html") {
+                fishingGauge(x);
+                glassgauge(x);
+            } else if (pageName === "portfolio.html") {
+                pengauge(x);
+            }
             carousel.classList.remove("whiteout");
         }, 1000);
     });
+
     right.addEventListener("click", () => {
         if (x === foods.length - 1) {
             x = 0;
         } else {
             x++;
         }
-        carousel.classList.toggle("whiteout");
+        carousel.classList.add("whiteout");
         setTimeout(() => {
             innerCarousel(x);
-            fishingGauge(x);
-            glassgauge(x);
-            carousel.classList.remove("whiteout");
+            // 元のロジック通りの条件分岐
+            if (isMobile.matches) {
+                glassgauge(x);
+                carousel.classList.remove("whiteout"); // モバイル時も白文字消去が必要なため追加
+            } else if (pageName === "kitchen_note.html") {
+                fishingGauge(x);
+                carousel.classList.remove("whiteout");
+            } else if (pageName === "portfolio.html") {
+                pengauge(x);
+                carousel.classList.remove("whiteout");
+            }
         }, 700);
     });
+
+    // 初期実行
     innerCarousel(x);
+    if (pageName === "kitchen_note.html") {
+        fishingGauge(x);
+        glassgauge(x);
+    } else if (pageName === "portfolio.html") {
+        pengauge(x);
+    }
 }

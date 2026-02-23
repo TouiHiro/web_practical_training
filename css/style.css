@@ -228,7 +228,7 @@
 
 li {
     list-style: none;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     text-align: left;
     margin-left: 50px;
 }
@@ -403,7 +403,6 @@ a {
     gap: 0px;
     padding-top: 3px;
     overflow: hidden;
-
 }
 
 .items p {
@@ -684,11 +683,21 @@ body.is-fixed {
 }
 
 /* cooking Note */
-.page-title2{
-    
+.page-title2 {
+    z-index: 20;
+    position: fixed;
+    top: 10%;
+    left: 35%;
+    font-weight: normal;
+
 }
+
 .foods {
     display: none;
+}
+
+#title {
+    font-weight: normal;
 }
 
 .carousel {
@@ -705,7 +714,7 @@ body.is-fixed {
     grid-template-columns: 60% 40%;
     grid-template-rows: 5% 80%;
     font-family: MaruMonica;
-    background: radial-gradient(circle, rgba(240, 240, 240 ,1), rgba(240,240,240,0.5));
+    background: radial-gradient(circle, rgba(240, 240, 240, 1), rgba(240, 240, 240, 0.5));
     transition: all 0.7s ease;
     opacity: 1;
 }
@@ -715,7 +724,7 @@ body.is-fixed {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     height: 80%;
-    margin-left:11%;
+    margin-left: 11%;
     margin-top: auto;
 }
 
@@ -723,21 +732,24 @@ body.is-fixed {
     padding-top: 10%;
     margin: auto;
 }
+
 #article {
-    margin: 30% 7% 0 7%; 
+    margin: 30% 7% 0 7%;
     white-space: pre-wrap;
     overflow-wrap: break-word;
     font-size: x-large;
 }
-.carousel.whiteout{
+
+.carousel.whiteout {
     opacity: 0;
 }
-.movetriggerLR
-{
-    position:absolute;
+
+.movetriggerLR {
+    position: absolute;
     width: 100%;
     height: 100%;
 }
+
 .movetriggerLR #left {
     top: 50%;
     left: 2%;
@@ -763,15 +775,22 @@ body.is-fixed {
     scale: 1;
     transition: scale 1s ease;
 }
-.movetriggerLR #left:hover{
-            border-color:transparent transparent #acacac #acacac ;
+
+.movetriggerLR #left:hover {
+    border-color: transparent transparent #acacac #acacac;
 }
-.movetriggerLR #right:hover{
-            border-color: #acacac #acacac transparent transparent;
+
+.movetriggerLR #right:hover {
+    border-color: #acacac #acacac transparent transparent;
 }
+
 .movetriggerLR #left:hover,
 .movetriggerLR #right:hover {
     scale: 1.1;
+}
+
+.scgaugeKres {
+    display: none;
 }
 
 /* レスポンシブ対応デザイン */
@@ -802,6 +821,10 @@ body.is-fixed {
         }
     }
 
+    .scgauge {
+        display: none;
+    }
+
     header {
         width: 100%;
     }
@@ -813,13 +836,16 @@ body.is-fixed {
         text-decoration: none;
         font-weight: bolder;
         font-family: MaruMonica;
-        font-size: 45px;
+        font-size: 50px;
         margin-left: 30vw;
+        white-space: pre;
+    }
+    .linksRes li{
+        margin-top: 10%;
     }
 
     .linksRes {
         display: block;
-        white-space: pre;
         margin-top: 13vh;
     }
 
@@ -857,6 +883,115 @@ body.is-fixed {
     .container a {
         animation: glow-motion 3s infinite alternate ease-in-out;
         width: 10px;
+    }
+
+    .scgaugeK {
+        display: none;
+    }
+
+    .mountgauge {
+        position: fixed;
+        width: 100%;
+        display: block;
+        bottom: 33%;
+
+    }
+
+    .scgaugeKres {
+        position: fixed;
+        width: 100%;
+        display: block;
+        bottom: 33%;
+    }
+
+    .scgaugeKres img {
+        position: absolute;
+    }
+
+    .mountgauge img {
+        position: absolute;
+    }
+
+    #glass {
+        width: 100%;
+        position: absolute;
+        translate: -60% 20%;
+        transition: all 0.5s ease;
+    }
+
+    #table {
+        width: 100%;
+        left: 0%;
+        height: 34vh;
+    }
+
+    #mtgauge {
+        width: 100%;
+        height: 60%;
+        left: 0%;
+        height: 34vh;
+        position: fixed;
+        top: 68%;
+    }
+    
+    .carousel {
+        width: 80%;
+        height: 50%;
+        left: 10%;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+    .carousel img {
+        width: 70%;
+        height: 30%;
+        aspect-ratio: 1.5 / 2;
+        object-fit: cover;
+        margin: 5% auto;
+    }
+
+    .carousel #title {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    #article {
+        margin-top: 5%;
+    }
+
+    .movetriggerLR #left {
+        top: 45%;
+        left: 2%;
+        width: 20px;
+        height: 20px;
+        border: 7px solid;
+        border-color: transparent transparent #4a4a4a #4a4a4a;
+        position: absolute;
+        rotate: 45deg;
+        scale: 1;
+        transition: scale 1s ease;
+    }
+
+    .movetriggerLR #right {
+        right: 2%;
+        top: 45%;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border: 7px solid;
+        border-color: #4a4a4a #4a4a4a transparent transparent;
+        rotate: 45deg;
+        scale: 1;
+        transition: scale 1s ease;
+    }
+
+    .movetriggerLR #left:hover {
+        border-color: transparent transparent #4a4a4a #4a4a4a;
+    }
+
+    .movetriggerLR #right:hover {
+        border-color: #4a4a4a #4a4a4a transparent transparent;
     }
 
     #Knote,
@@ -1001,7 +1136,17 @@ body.is-fixed {
     #indSide {
         display: none;
     }
-
+    .scgaugeMres{
+        width: 100%;
+        bottom: 0;
+        height: 30%;
+        background-image: linear-gradient(#ff0000, #ff0000);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100% 100%;
+        position: absolute;
+        position: fixed;
+    }
     .scgauge {
         display: none;
     }
@@ -1035,7 +1180,10 @@ body.is-fixed {
         grid-template-columns: repeat(2, 1fr);
         font-size: 0.8rem;
         gap: 10px;
-        margin: auto;
+    }
+
+    .items img {
+        width: 70%;
     }
 
     .subject h2 {
@@ -1045,7 +1193,8 @@ body.is-fixed {
 
     .subject {
         padding: 0;
-        margin: 10% 5%;
+        margin: auto;
+        width: 100%;
     }
 
     .item {
@@ -1055,6 +1204,7 @@ body.is-fixed {
     }
 
     .mountp {
+        display: block;
         width: 100%;
         margin-top: 12%;
     }
@@ -1187,5 +1337,11 @@ body.is-fixed {
         opacity: 0;
         visibility: hidden;
         transition: opacity 1.5s ease;
+    }
+    .movetriggerLR #left{
+        rotate: 0deg;
+    }
+    .movetriggerLR #right{
+        rotate: 0deg;
     }
 }

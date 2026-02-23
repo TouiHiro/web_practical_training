@@ -116,7 +116,9 @@ glowLinks.forEach((link) => {
 });
 
 const documentHeight = document.documentElement.scrollHeight;
+// const documentWidth = document.documentElement.
 const bar = document.querySelector(".scgauge");
+const barM = document.querySelector(".scgaugeMres");
 if (bar) {
     window.addEventListener('scroll', () => {
         const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -125,8 +127,25 @@ if (bar) {
         const inversePercent = 100 - scrollPercent;
         if (bar) {
             bar.style.backgroundSize = `100% ${inversePercent}%`;
+        }else{
+            bar.style.backgroundSize = `0 ${inversePercent}%`;
         }
     });
+}
+if (barM) {
+    window.addEventListener('scroll', () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollTop = window.scrollY;
+    
+    if (scrollable > 0) {
+        const scrollPercent = (scrollTop / scrollable) * 100;
+        const inversePercent = 100 - scrollPercent;
+        const barM = document.querySelector('.scgaugeMres');
+        if (barM) {
+            barM.style.width = `${inversePercent}%`;
+        }
+    }
+});
 }
 const moveKey = document.querySelectorAll(".movetrigger div");
 if (moveKey) {
@@ -395,7 +414,12 @@ function fishingGauge(x) {
     const rate = foods.length;
     bar.style.backgroundSize = `100% ${100 - 100 / rate * (x + 1)}%`;
 }
-
+function glassgauge(x){
+    const bar = document.querySelector("#glass");
+    const rate = foods.length;
+    bar.style.transform = `translate(${100 / rate * (x + 1)}%)`
+}
+// レスポンシブゲージ
 
 if (carousel) {
     const carouselImg = carousel.querySelector("img");
@@ -405,6 +429,7 @@ if (carousel) {
     const right = document.querySelector("#right");
     let x = 0;
     fishingGauge(x);
+    glassgauge(x);
     function innerCarousel(x) {
         let content = foods[x];
         const newSrc = content.getAttribute("data-src");
@@ -424,6 +449,7 @@ if (carousel) {
         setTimeout(() => {
             innerCarousel(x);
             fishingGauge(x);
+            glassgauge(x);
             carousel.classList.remove("whiteout");
         }, 1000);
     });
@@ -437,6 +463,7 @@ if (carousel) {
         setTimeout(() => {
             innerCarousel(x);
             fishingGauge(x);
+            glassgauge(x);
             carousel.classList.remove("whiteout");
         }, 700);
     });

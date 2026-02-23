@@ -8,37 +8,50 @@
     <meta name="viewport" content="width = device-width, initial-scale = 1">
     <!-- レスポンシブ -->
     <link rel="icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css\reset.css">
+    <link rel="stylesheet" href="css\style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <!-- 山ページ -->
 
 <body>
     <header id="header" class="wrapper">
-        <h1 class="site-title">
-            <a href="index.html"><img src="img/logo.svg" alt="Furniture Design"></a>
-        </h1>
-        <div class="menu">
-            <ul class="links">
-                <li><a href="about.html">About</a></li>
-                <li><a href="index.html">Index</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="company.html">Company</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div>
-            <nav class="btn-trigger" id="button">
-                <span class="random-box"></span>
-                <span class="random-box"></span>
-                <span class="random-box"></span>
-            </nav>
+        <div class="head-bar">
+            <h1 class="site-title">
+                <a href="miniature_garden.html"><img src="img/logo.svg" alt="Furniture Design"></a>
+            </h1>
+            <div class="menu">
+                <ul class="links">
+                    <li><a href="miniature_garden.html">Home</a></li>
+                    <li><a href="mountain_climbing.html">MOUNTAIN
+CLIMBING</a></li>
+                    <li><a href="item1.html">KITCHEN
+NOTE</a></li>
+                </ul>
+                <ul class="linksRes">
+                    <li><a href="miniature_garden.html">Home</a></li>
+                    <li><a href="mountain_climbing.html">MOUNTAIN
+           CLIMBING</a></li>
+                    <li><a href="item1.html">KITCHEN
+           NOTE</a></li>
+                </ul>
+            </div>
+            <div>
+                <nav class="btn-trigger" id="button">
+                    <span class="random-box"></span>
+                    <span class="random-box"></span>
+                    <span class="random-box"></span>
+                </nav>
+            </div>
         </div>
         <div class="overlay" id="overlay"></div>
     </header>
     <main>
         <div class="content wrapper">
+            <div class="canvas-wrapper">
+                <canvas class="wave-bar" data-color1="#" data-color2="#239443"></canvas>
+                <canvas class="wave-bar flipped" data-color1="#1d4cbc" data-color2="#1d4cbc"></canvas>
+            </div>
             <div class="mountp">
                 <div class="subject">
                     <h1 class="page-title">登山記録</h1>
@@ -48,25 +61,27 @@
                             <img src="contentsImg/sha_dam.jpeg" class="item" data-title="旭ダム"
                                 data-src="contentsImg/sha_dam.jpeg" data-text="登っていく道中にあったダム。迫力満点">
                         </p>
-                        <p>切り株<br>
+                        <!-- <p>切り株<br>
                             <img src="contentsImg/sha_stump.jpeg" class="item" data-title="切り株"
                                 data-src="contentsImg/sha_stump.jpeg" data-text="">
-                        </p>
+                        </p> -->
                         <p>樹洞<br>
                             <img src="contentsImg/sha_treecave.jpeg" class="item" data-title="樹洞"
-                                data-src="contentsImg/sha_treecave.jpeg" data-text="樹洞">
+                                data-src="contentsImg/sha_treecave.jpeg" data-text="何があったらこんな形になるのだろうか">
                         </p>
-                        <p>題名<br>
+                        <p>岩<br>
                             <img src="contentsImg/sha_unnatural.jpg" class="item" data-title="岩"
-                                data-src="contentsImg/sha_unnatural.jpg" data-text="岩">
+                                data-src="contentsImg/sha_unnatural.jpg" data-text="まるで人工物のような平たい岩">
                         </p>
                         <p>日の出<br>
                             <img src="contentsImg/sha_sunset.jpeg" class="item" data-title="日の出"
-                                data-src="contentsImg/sha_sunset.jpg" data-text="日の出">
+                                data-src="contentsImg/sha_sunset.jpg"
+                                data-text="朝早くの登山だったので山の景色は青みを帯びていたが、陽が差したことで温かみを帯びた風景になった">
                         </p>
                         <p>雲海<br>
                             <img src="contentsImg/sha_sea_of_clouds.jpeg" class="item" data-title="雲海"
-                                data-src="contentsImg/sha_sea_of_clouds.jpeg" data-text="登り始めは周りが見えずただの森や山とそう変わらなかったが、周りが開け雲海が見えてきてやっと自分が標高1800m近くにいるのだと実感できた。">
+                                data-src="contentsImg/sha_sea_of_clouds.jpeg"
+                                data-text="登り始めは周りが見えずただの森や山とそう変わらなかったが、周りが開け雲海が見えてきてやっと自分が標高1800m近くにいるのだと実感できた。">
                         </p>
                         <p>根の壁<br>
                             <img src="contentsImg/sha_roots.jpeg" class="item" data-title="根の壁"
@@ -80,14 +95,15 @@
                         </p>
                         <p>釈迦ヶ岳頂上<br>
                             <img src="contentsImg/shaka.jpg" class="item" data-title="釈迦ヶ岳頂上"
-                                data-src="contentsImg/shaka.jpg" data-text="車中泊明けの朝早くからの登山だった">
+                                data-src="contentsImg/shaka.jpg" data-text="距離4㎞と登り600mを2時間かけてやっと頂上にたどり着いた。
+                                そこには大きな釈迦如来像が立っていて朝日を背に受け、まるで後光がさしているかのような光景があった。">
                         </p>
                     </div>
                     <h2>大台ケ原</h2>
                     <div class="items">
                         <p>日の出<br>
-                            <img src="contentsImg/odai_sunset.JPG" class="item" data-title="日の出"
-                                data-src="contentsImg/odai_sunset.JPG" data-text="日の出">
+                            <img src="contentsImg/odai_sun.JPG" class="item" data-title="日の出"
+                                data-src="contentsImg/odai_sun.JPG" data-text="日の出">
                         </p>
                         <p>階段<br>
                             <img src="contentsImg/odai_upstair.JPG" class="item" data-title="階段"
@@ -105,7 +121,7 @@
                     </div>
                 </div>
                 <div class="scgauge">
-                    
+
                 </div>
             </div>
             <!-- tips -->
@@ -113,29 +129,22 @@
         <!-- モーダルウィンドウの枠 -->
         <div class="modal">
             <div id="modalGrid">
-                <p id="modalTitle"></p>
+                <p id="modalTitle">title</p>
                 <img src="" alt="">
-                <p id="article"></p>
+                <p id="article">text</p>
                 <div id="modalClose">
                     <span class="closeBtn"></span>
                     <span class="closeBtn"></span>
                 </div>
             </div>
+            <div id="modalCloseRes">
+                <span class="closeBtn"></span>
+                <span class="closeBtn"></span>
+            </div>
         </div>
         <!-- クリック要素の座標から真中へ -->
     </main>
     <footer id="footer" class="wrapper">
-        <ul class="SNS">
-            <li>
-                <p>INSTAGRAM</p>
-            </li>
-            <li>
-                <p>TWITTER</p>
-            </li>
-            <li>
-                <p>FACEBOOK</p>
-            </li>
-        </ul>
     </footer>
     <script src="js/main.js"></script>
 </body>

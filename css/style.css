@@ -24,6 +24,7 @@
     align-items: center;
     flex-direction: column;
     text-align: left;
+    border-left: #dddddd 3px solid;
 }
 
 #indSide p {
@@ -38,7 +39,7 @@
 
 #indSide img {
     width: 10vw;
-    margin-top: -2vh;
+    margin-top: 2vh;
     margin-bottom: -4vh;
 }
 
@@ -222,7 +223,6 @@
     font-weight: bolder;
     font-family: MaruMonica;
     font-size: 45px;
-
 }
 
 
@@ -386,6 +386,17 @@ a {
 }
 
 /* item1ページ編集 */
+canvas {
+    display: block;
+    width: 100%;
+
+    &.flipped {
+        transform: rotate(180deg):
+    }
+}
+.linksRes{
+    display:none;
+}
 .page-title {
     font-size: medium;
     margin-bottom: 10px;
@@ -398,6 +409,7 @@ a {
     gap: 0px;
     padding-top: 3px;
     overflow: hidden;
+
 }
 
 .items p {
@@ -408,22 +420,34 @@ a {
     width: 80%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    border: #dddddd dashed 3px;
+}
 
+#mePhoto {
+    border-radius: 90%;
+    border: #ffffff 5px solid;
+    filter: drop-shadow(0 0 0.75rem #ffffff);
 }
 
 .subject h2 {
     border-bottom: solid 3px gray;
     width: 100px;
+    font-weight: normal;
+    font-size: xx-large;
 }
 
 .items img {
     border-radius: 11%;
-    border: solid 5px antiquewhite;
 }
 
 .items img:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
+    filter: opacity(80%);
+    transition: all 0.2s;
+}
+
+
+.links {
+    white-space: pre;
 }
 
 /* tips表示 */
@@ -462,13 +486,38 @@ a {
     width: 80%;
     margin: auto;
     font-family: MaruMonica;
+    font-size: larger;
 }
 
 .modal #modalClose {
     height: 30px;
     width: 30px;
     z-index: 200;
-    margin-top: -35px;
+    position: absolute;
+    position: fixed;
+    top: -2%;
+    left: 96%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease;
+}
+
+#modalClose.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 50%);
+}
+
+
+canvas {
+    width: 100%;
+    height: 100vh;
+    top: -13vh;
+    position: fixed;
+    display: block;
+    &.flipped {
+        transform: rotate(180deg);
+    }
 }
 
 #modalGrid.active {
@@ -477,6 +526,10 @@ a {
     transform: translate(-50%, -50%);
     opacity: 1;
     visibility: visible;
+}
+
+body.is-fixed {
+    overflow: hidden;
 }
 
 .closeBtn {
@@ -494,20 +547,34 @@ a {
 #modalClose span:last-of-type {
     transform: translateY(10px) rotate(-45deg)
 }
+#modalCloseRes span:first-of-type {
+    transform: translateY(10px) rotate(45deg)
+}
 
+#modalCloseRes span:last-of-type {
+    transform: translateY(10px) rotate(-45deg)
+}
+#modalCloseRes{
+    display: none;
+}
 .mountp {
     display: flex;
+    z-index: 2;
+    position: absolute;
+    width: 72%;
+    top: -0.05%;
 }
 
 .subject {
-    width: 70%;
-    margin: 20px;
-    padding-right: 20px;
+    width: 100%;
+    padding-top: 70px;
+    margin: auto;
+
 }
 
 .scgauge {
     background-color: aquamarine;
-    width: 28.4%;
+    width: 20%;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -601,6 +668,24 @@ a {
         width: 100%;
     }
 
+    .linksRes li a {
+    height: 100vh;
+    z-index: 200;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bolder;
+    font-family: MaruMonica;
+    font-size: 45px;
+    margin-left:30vw;
+}
+.linksRes{
+    display: block;
+    white-space: pre;
+    margin-top: 13vh;
+}
+.links{
+    display: none;
+}
 
     #footer ul {
         display: inline;
@@ -609,17 +694,24 @@ a {
 
     #backGif {
         display: flex;
-        /* flex-direction: column; */
+        flex-direction: column;
+        grid-template-columns: none;
+        /* width: 120vw; */
         align-items: center;
+        margin-top: 7vh;
         /* gap: 20px; */
         height: 100%;
     }
 
     .container {
-        width: 600px;
-        height: 630px;
+        width: 100vw;
+        height: 100vh;
         position: relative;
         overflow: hidden;
+    }
+
+    .movetrigger {
+        display: none;
     }
 
     .container a {
@@ -678,9 +770,10 @@ a {
         transform: translate(-50%, -50%);
         transition: all 0.3s ease;
         min-width: 400%;
-        min-height: 100%;
+        min-height: 170%;
         /* visibility: hidden; */
     }
+
     #up {
 
         top: 10%;
@@ -701,7 +794,7 @@ a {
         transform: translateX(-50%);
         width: 30px;
         height: 30px;
-        border-color: transparent transparent  ;
+        border-color: transparent transparent;
         border: 7px solid;
         border-color: transparent transparent #dddddd #dddddd;
         transform: rotate(-45deg);
@@ -715,7 +808,7 @@ a {
         border: 7px solid;
         border-color: transparent transparent #dddddd #dddddd;
         transform: rotate(45deg);
-        
+
     }
 
     #right {
@@ -769,73 +862,166 @@ a {
     #indSide {
         display: none;
     }
-    
+
+    .scgauge {
+        display: none;
+    }
+
     #company .info th,
     #company .info td {
         display: block;
         width: 100%;
     }
-    
+
     .page-title {
         margin-left: 30px;
     }
-    
+
     #company .info th {
         border-style: none;
-    
+
     }
-    
+
     #company .info {
         margin-left: 30px;
     }
-    
+
     .map iframe {
         width: 300px;
         margin-left: 30px;
         justify-content: center;
     }
-    
+
     .items {
         grid-template-columns: repeat(2, 1fr);
         font-size: 0.8rem;
-        gap: 0px;
-    }
-    
-    .subject {
-    
+        gap: 10px;
         margin: auto;
     }
-    
+
+    .subject h2 {
+        font-weight: normal;
+        margin: auto;
+    }
+
+    .subject {
+        padding: 0;
+        margin: 10% 5%;
+    }
+
     .item {
         width: 80%;
         margin: 0 auto 30px;
         flex-direction: column;
     }
-    
+
+    .mountp {
+        width: 100%;
+        margin-top: 12%;
+    }
+
+    #bg {
+        width: 200%;
+        height: 100vh;
+    }
+
+    #mountbg {
+        height: 150%;
+        top: -30%;
+        left: -0%;
+    }
+
     .items p {
         text-align: center;
     }
-    
-    .menu {
-        background-color: black;
-        /* opacity: 80%; */
-        height: 700px;
+
+    #modalGrid {
+        width: 70%;
+        top: 50%;
+        grid-template-columns: none;
+    }
+
+    #modalGrid.active {
+        flex-direction: column;
+        overflow-y: scroll;
         display: flex;
-        translate: 100vw;
+    }
+
+    #modalTitle {
+        text-align: center;
+        padding: 0;
+        padding: 9px 0;
+    }
+
+    #modalGrid img {
+        margin-bottom: 15px;
+    }
+
+    #modalGrid p {
+        text-align: center;
+        width: 70%;
+    }
+
+    .modal #modalClose {
+        display: none;
+    }
+
+    /* レスポンシブはmodalCloseRes */
+    .modal #modalCloseRes {
+        height: 30px;
+        width: 30px;
+        z-index: 200;
+        position: absolute;
         position: fixed;
-        top: 0;
+        top: 32%;
+        left: 79%;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 1s ease;
+        
+    }
+
+    #modalCloseRes.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-40%, 50%);
+        display: block;
+        z-index: 610;
+    }
+#modalCloseRes span:first-of-type {
+    transform: translateY(10px) rotate(45deg)
+}
+
+#modalCloseRes span:last-of-type {
+    transform: translateY(10px) rotate(-45deg)
+}
+    .menu {
+        display: flex;
+        /* translate: 100vw; */
+        position: fixed;
+        top: -9%;
         right: 0;
         z-index: 39;
         height: 100vh;
         transition: 1.2s;
-        width: 25%;
-        right: 0;
-        top: 0;
+        width: 110%;
         flex-direction: column;
         align-items: left;
         padding-top: 70px;
+        translate: 0;
+        transform: translateY(-100vh);
     }
-    
+
+    .links {
+        margin-left: 13%;
+        height: 100%;
+    }
+
+    .menu.active {
+        transform: translateY(8vh);
+        translate: 0;
+    }
+
     .overlay {
         position: fixed;
         top: 0;
@@ -849,4 +1035,3 @@ a {
         transition: opacity 1.5s ease;
     }
 }
-
